@@ -1,0 +1,11 @@
+steps:
+  - label: ":rspec:"
+    artifact_paths: "tmp/rspec-*.xml"
+    commands:
+      - "bundle"
+      - "rails db:reset"
+      - "rspec --format progress"
+    plugins:
+      - docker#v2.0.0:
+          image: "ruby:2.7.2"
+          workdir: /app
