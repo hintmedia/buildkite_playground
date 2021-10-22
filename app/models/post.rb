@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  # summary
   def summary
     [title, truncated_body].compact.join(' - ')
   end
