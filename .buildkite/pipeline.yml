@@ -1,6 +1,5 @@
 steps:
   - label: ":rspec:"
-    artifact_paths: "tmp/rspec-*.xml"
     commands:
       - "bundle"
       - "rails db:reset"
