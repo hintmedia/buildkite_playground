@@ -1,5 +1,10 @@
 class Post < ApplicationRecord
   def summary
-    "#{title} - #{body.truncate(25, separator: ' ')}"
+    [title, truncated_body].compact.join(' - ')
+  end
+
+  def truncated_body
+    body&.truncate(25, separator: ' ')
   end
 end
+
