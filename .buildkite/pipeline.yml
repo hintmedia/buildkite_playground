@@ -6,5 +6,7 @@ steps:
       - "rspec --format progress"
     plugins:
       - docker#v2.0.0:
-          image: "ruby:2.7.2"
-          workdir: /app
+        image: "ruby:2.7.2"
+        workdir: /app
+        env:
+          - KNAPSACK_GENERATE_REPORT=true
