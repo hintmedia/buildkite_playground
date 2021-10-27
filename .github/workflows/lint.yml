@@ -11,4 +11,10 @@ jobs:
       - name: Run Skunk
         run: |
           gem install skunk
-          skunk
+          CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          echo "Executing on branch: $CURRENT_BRANCH"
+          if [[ "$CURRENT_BRANCH" != "master" ]]; then
+            skunk -b master
+          else
+            skunk
+          fi
