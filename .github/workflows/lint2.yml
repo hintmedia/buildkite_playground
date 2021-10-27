@@ -1,0 +1,20 @@
+name: Lint
+on: [pull_request, pull_request_review_comment]
+jobs:
+  skunk2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+      - name: Run Skunk
+        run: |
+          gem install skunk
+          CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          echo "Executing on branch: $CURRENT_BRANCH"
+          if [[ "$CURRENT_BRANCH" == "master" ]]; then
+            skunk
+          else
+            skunk -b master
+          fi
+
