@@ -1,0 +1,17 @@
+name: Lint
+on: [pull_request pull_request_review_comment]
+
+jobs:
+  skunk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Run Skunk on Project
+        run: |
+          gem install skunk
+          skunk
