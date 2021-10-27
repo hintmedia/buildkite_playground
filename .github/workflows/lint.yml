@@ -1,6 +1,5 @@
 name: Lint
 on: [pull_request, pull_request_review_comment]
-
 jobs:
   cancel-previous:
     runs-on: ubuntu-latest
