@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
-      - name: Run Skunk
+      - name: Run Skunk2
         run: |
           gem install skunk
           CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -17,4 +17,3 @@ jobs:
           else
             skunk -b master
           fi
-
