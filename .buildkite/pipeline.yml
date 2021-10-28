@@ -3,7 +3,8 @@ steps:
     commands:
       - "bundle"
       - "rails db:reset"
-      - "rspec --format progress"
+      - "bundle exec rake knapsack:rspec"
+    parallelism: 5
     plugins:
       - docker#v2.0.0:
         image: "ruby:2.7.2"

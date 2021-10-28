@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Rock < ApplicationRecord
   # summary
   def summary
     [name, truncated_description].compact.join(' - ')

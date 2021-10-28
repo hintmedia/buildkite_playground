@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Muskrat < ApplicationRecord
   # summary
   def summary
     [name, truncated_description].compact.join(' - ')
