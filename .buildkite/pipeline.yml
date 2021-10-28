@@ -1,9 +1,6 @@
 steps:
-  - label: ":rspec:"
-    commands:
-      - "bundle"
-      - "rails db:reset"
-      - "bundle exec rake knapsack:rspec"
+  - name: ":rspec:"
+    command: "scripts/ci/setup.sh && scripts/ci/parallel_specs.sh"
     parallelism: 5
     plugins:
       - docker#v2.0.0:
